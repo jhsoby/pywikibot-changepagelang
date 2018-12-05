@@ -2,6 +2,9 @@
 
 This script sets page languages for a selection of pages decided by default Pywikibot page generators.
 
+## Prerequisites
+This script will only work on wikis that have [$wgPageLanguageUseDB](https://www.mediawiki.org/wiki/Manual:$wgPageLanguageUseDB) enabled – typically, this will be wikis where the [Translate extension](https://www.mediawiki.org/wiki/Extension:Translate) is enabled. And in order to be able to change the language, the account needs to have the `pagelang` right, which by default is assigned to administrators and translation administrators by the Translate extension. The easiest way to achieve this for a bot is by requesting translation administrator access for the bot – alternatively a bug can be filed in Phabricator to add the `pagelang` right to the bot group.
+
 ## Use
 There are two things you need to do to use this script:
 
@@ -10,7 +13,11 @@ There are two things you need to do to use this script:
 
 Change the file `api.py` in pywikibot's pywikibot/data directory the following way:
 
-There's a list of values under `self.write = self.action in` (line 1420 as of 4 December 2018); in this list, add `'setpagelanguage'`.
+There's a list of values under 
+```python
+self.write = self.action in
+```
+(line 1420 as of 4 December 2018); in this list, add `'setpagelanguage'`.
 
 When this is done, you can use the script like other scripts in Pywikibot:
 
