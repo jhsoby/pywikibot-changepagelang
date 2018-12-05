@@ -21,6 +21,7 @@ Furthermore, the following command line parameters are supported:
 
 """
 #
+# (C) Jon Harald Søby, 2018
 # (C) Pywikibot team, 2018
 #
 # Distributed under the terms of the MIT license.
