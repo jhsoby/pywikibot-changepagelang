@@ -6,7 +6,9 @@ This script sets page languages for a selection of pages decided by default Pywi
 There are two things you need to do to use this script:
 
 1. Copy the file `change_pagelang.py` into Pywikibot's core/scripts directory.
-2. Change the file `api.py` in pywikibot's pywikibot/data directory the following way:
+2. Copy the file `setlangpatch.patch` into Pywikibot's core directory and run `git apply setlangpatch.patch`, **or**:
+
+Change the file `api.py` in pywikibot's pywikibot/data directory the following way:
 
 There's a list of values under `self.write = self.action in` (line 1420 as of 4 December 2018); in this list, add `'setpagelanguage'`.
 
@@ -29,5 +31,3 @@ To set all pages with the prefix "Page:Salmai girje.pdf" to language `se`, use:
 To set all pages in [[Category:Hindi]] to language `hi`, regardless of whether they have another language set, use:
 
 `python pwb.py change_pagelang -cat:Hindi -setlang:hi -always`
-
-
